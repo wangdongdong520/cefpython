@@ -16,3 +16,10 @@ unittests/GPUCache/
 unittests/blob_storage/
 unittests/webrtc_event_logs/
 .DS_Store
+.vs/
+tools/installer/cefpython3/
+tools/installer/cefpython3.egg-info/
+examples/Web Data
+examples/Web Data-journal
+tools/Web Data
+tools/Web Data-journal

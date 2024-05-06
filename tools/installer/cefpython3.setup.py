@@ -104,7 +104,7 @@ def main():
         distclass=Distribution,
         cmdclass=cmdclass,
         name="cefpython3",  # No spaces here, so that it works with deb pkg
-        version="{{VERSION}}",
+        version="108.0",
         description="GUI toolkit for embedding a Chromium widget"
                     " in desktop applications",
         long_description="CEF Python is an open source project founded"

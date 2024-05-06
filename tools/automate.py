@@ -694,7 +694,7 @@ def prepare_build_command(build_lib=False, vcvars=None):
             command.append(VS_PLATFORM_ARG)
         else:
             if int(Options.cef_branch) >= 2704:
-                command.append(VS2015_VCVARS)
+                command.append(VS2019_VCVARS)
             else:
                 command.append(VS2013_VCVARS)
             command.append(VS_PLATFORM_ARG)
@@ -724,6 +724,7 @@ def create_prebuilt_binaries():
     """After building copy binaries/libs to build/cef_xxxx/.
     Not all projects may have been built on all platforms."""
 
+    print("[automate.py] OK prebuilt binaries  start")
     # Directories
     src = Options.cef_binary
     version_header = os.path.join(src, "include", "cef_version.h")
@@ -872,10 +873,13 @@ def create_prebuilt_binaries():
 
 
 def get_available_python_compilers():
+    # all_python_compilers = OrderedDict([
+    #     ("2008", VS2008_VCVARS),
+    #     ("2010", VS2010_VCVARS),
+    #     ("2015", VS2015_VCVARS),
+    # ])
     all_python_compilers = OrderedDict([
-        ("2008", VS2008_VCVARS),
-        ("2010", VS2010_VCVARS),
-        ("2015", VS2015_VCVARS),
+        ("2019", VS2019_VCVARS),
     ])
     ret_compilers = OrderedDict()
     for msvs in all_python_compilers:

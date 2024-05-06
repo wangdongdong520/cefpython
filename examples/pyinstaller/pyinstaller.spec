@@ -24,7 +24,10 @@ PYCRYPTO_MIN_VERSION = "2.6.1"
 # imported modules, it won't encrypt the main script file
 # (wxpython.py). The names of all imported Python modules can be
 # still accessed, only their contents are encrypted.
-SECRET_CIPHER = "This-is-a-secret-phrase"  # Only first 16 chars are used
+
+# wdq remark pyinstaller version higher then 6， so no need  SECRET_CIPHER
+# SECRET_CIPHER = "This-is-a-secret-phrase"  # Only first 16 chars are used
+SECRET_CIPHER = ""
 
 # ----------------------------------------------------------------------------
 # Main
@@ -32,7 +35,8 @@ SECRET_CIPHER = "This-is-a-secret-phrase"  # Only first 16 chars are used
 
 if SECRET_CIPHER:
     # If using secret cipher then pycrypto package must be installed
-    if not is_module_satisfies("pycrypto >= %s" % PYCRYPTO_MIN_VERSION):
+    # wdq remark pycrypto support max python is 3.6 ，the higher version can  download pycryptodome
+    if not is_module_satisfies("pycryptodom >= %s" % PYCRYPTO_MIN_VERSION):
         raise SystemExit("Error: pycrypto %s or higher is required. "
                          "To install type: pip install --upgrade pycrypto"
                          % PYCRYPTO_MIN_VERSION)
